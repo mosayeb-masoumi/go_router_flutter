@@ -25,9 +25,9 @@ class _ProfilePageState extends State<ProfilePage> {
         child: Center(
           child: Column(
             children: [
-              const Text("Profile", style: TextStyle(fontSize: 30)),
+              const Text("Profile Page", style: TextStyle(fontSize: 30)),
+              const SizedBox(height: 20,),
               Text("this is ${widget.userName} ${widget.city}"),
-
             ],
           ),
         ),

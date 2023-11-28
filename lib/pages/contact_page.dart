@@ -23,7 +23,8 @@ class _ContactPageState extends State<ContactPage> {
         child: Center(
           child: Column(
             children: [
-               const Text("Contact", style: TextStyle(fontSize: 30)),
+               const Text("Contact Page", style: TextStyle(fontSize: 30)),
+               const SizedBox(height: 20,),
                Text(widget.name, style: const TextStyle(fontSize: 30)),
                Text("age: ${widget.age}", style: const TextStyle(fontSize: 30)),
                Text(widget.married? "Married": "Single", style: const TextStyle(fontSize: 30)),

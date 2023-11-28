@@ -32,8 +32,8 @@ class _AboutPageState extends State<AboutPage> {
         child: Center(
           child: Column(
             children: [
-              const Text("About", style: TextStyle(fontSize: 30)),
-
+              const Text("About Page", style: TextStyle(fontSize: 30)),
+              const SizedBox(height: 20,),
               Text("text from object ${widget.myModel.name} ${widget.myModel.family}"),
               Text("first list item ${widget.myList[1].name} ${widget.myList[1].family}"),
               Text("age is ${widget.age} ${widget.married ? "married":"single"}")
