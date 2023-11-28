@@ -1,7 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_router/MyModel.dart';
+
 
 class ContactPage extends StatefulWidget {
-  const ContactPage({super.key});
+
+  final String name;
+  final int age;
+  final bool married;
+
+  const ContactPage({super.key, required this.name, required this.age, required this.married,});
 
   @override
   State<ContactPage> createState() => _ContactPageState();
@@ -12,9 +19,17 @@ class _ContactPageState extends State<ContactPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(),
-      body: const SizedBox(
+      body:  SizedBox(
         child: Center(
-          child: Text("Contact", style: TextStyle(fontSize: 30)),
+          child: Column(
+            children: [
+               const Text("Contact", style: TextStyle(fontSize: 30)),
+               Text(widget.name, style: const TextStyle(fontSize: 30)),
+               Text("age: ${widget.age}", style: const TextStyle(fontSize: 30)),
+               Text(widget.married? "Married": "Single", style: const TextStyle(fontSize: 30)),
+
+            ],
+          ),
         ),
       ),
     );

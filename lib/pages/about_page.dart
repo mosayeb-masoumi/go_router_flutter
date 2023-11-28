@@ -1,8 +1,22 @@
 
 import 'package:flutter/material.dart';
 
+import '../MyModel.dart';
+
 class AboutPage extends StatefulWidget {
-  const AboutPage({super.key});
+
+  final MyModel myModel;
+  final List<MyModel> myList;
+  final int age;
+  final bool married;
+
+  const AboutPage({super.key,
+    required this.myModel,
+    required this.myList,
+    required this.age,
+    required this.married});
+
+
 
   @override
   State<AboutPage> createState() => _AboutPageState();
@@ -11,11 +25,21 @@ class AboutPage extends StatefulWidget {
 class _AboutPageState extends State<AboutPage> {
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       appBar: AppBar(),
-      body: const SizedBox(
+      body:  SizedBox(
         child: Center(
-          child: Text("About" , style: TextStyle(fontSize: 30),),
+          child: Column(
+            children: [
+              const Text("About", style: TextStyle(fontSize: 30)),
+
+              Text("text from object ${widget.myModel.name} ${widget.myModel.family}"),
+              Text("first list item ${widget.myList[1].name} ${widget.myList[1].family}"),
+              Text("age is ${widget.age} ${widget.married ? "married":"single"}")
+
+            ],
+          ),
         ),
       ),
     );

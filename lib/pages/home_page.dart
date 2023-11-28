@@ -11,7 +11,6 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-
   MyModel myModel = MyModel(name: "Nabi", family: "Rezai");
 
   List<MyModel> myList = [
@@ -35,49 +34,50 @@ class _HomePageState extends State<HomePage> {
               const SizedBox(
                 height: 10,
               ),
+
+              ElevatedButton(
+                  onPressed: () {
+                    GoRouter.of(context).pushNamed(
+                        MyAppRouteConstants.contactRouteName,
+                        queryParameters: {
+                          "name": "Mosayeb",
+                          "age": 1365.toString(),
+                          "married": false.toString()
+                        });
+                  },
+                  child: const Text("Goto Contact  pass query parameters")),
+
+              const SizedBox(
+                height: 10,
+              ),
+
               ElevatedButton(
                   onPressed: () {
                     GoRouter.of(context)
                         .pushNamed(MyAppRouteConstants.profileRouteName,
-
-                          extra: [myModel , myList , age , married ],
-
-                          /*********/
-                            // extra: myList,
-                            //     /*********/
-                            //     extra: myModel, // to pass object
-                            //
-                            // /*********/
-                            //     queryParameters: {
-                            //   "userId": 1365,
-                            //   "email": "mb.masoumi1000@gmail.com",
-                            //   "status": true
-                            // },
-                            /*********/
                             pathParameters: {
                           "userName": "Mosayeb Masoumi",
                           "city": "Nahavand",
                         });
                   },
-                  child: const Text("Goto Profile")),
+                  child: const Text("Goto Profile  pass pathParameters")),
               const SizedBox(
                 height: 10,
               ),
               ElevatedButton(
                   onPressed: () {
-                    GoRouter.of(context)
-                        .pushNamed(MyAppRouteConstants.aboutRouteName);
+                    GoRouter.of(context).pushNamed(
+
+                      MyAppRouteConstants.aboutRouteName,
+                      //     extra: myModel, // to pass object
+                      extra: [myModel, myList, age, married],
+                    );
                   },
-                  child: const Text("Goto About")),
+                  child: const Text("Goto About  pass Extra")),
               const SizedBox(
                 height: 10,
               ),
-              ElevatedButton(
-                  onPressed: () {
-                    GoRouter.of(context)
-                        .pushNamed(MyAppRouteConstants.contactRouteName);
-                  },
-                  child: const Text("Goto Contact")),
+
             ],
           ),
         ),
